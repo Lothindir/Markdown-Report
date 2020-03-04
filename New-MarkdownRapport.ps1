@@ -21,10 +21,10 @@
   None
 
 .NOTES
-  Version:        1.10
+  Version:        2.0.1
   Author:         Francesco Monti
   Creation Date:  29.02.20
-  Purpose/Change: Added CLI and Interactive mode
+  Purpose/Change: Added Markdown generation
 
 .EXAMPLE
   <Example explanation goes here>
