@@ -1,0 +1,19 @@
+---
+  title: Title
+  author: Author
+  titlepage: true
+  toc: true
+  toc-own-page: true
+  book: false
+  disable-header-and-footer: true
+  header-includes: |
+   \usepackage{graphicx}
+   \usepackage{fancyhdr}
+   \pagestyle{fancy}
+   \graphicspath{{##GRAPHICS_PATH##}}
+   \fancyhead{}
+   \fancyfoot{}
+   \fancyhead[LO,LE]{##TITLE##}
+   %\rhead{\includegraphics[width=2cm]{logo.png}}
+   \fancyfoot[LO,LE]{##AUTHOR##}
+   \fancyfoot[CE,CO]{\thepage}
