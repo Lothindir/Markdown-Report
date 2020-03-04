@@ -118,7 +118,7 @@ $ErrorActionPreference = 'Continue'
 $ModelsPath = './Models/'
 
 #Import Modules & Snap-ins
-Import-Module './PSYaml'
+Import-Module './PSYaml/PSYaml'
 
 #----------------------------------------------------------[Declarations]----------------------------------------------------------
 
@@ -531,7 +531,6 @@ $YamlObject = ConvertFrom-Yaml -Path $ConfigFile
 Verify-ConfigFile -YamlObject $YamlObject
 $YamlFile = Fill-YAML $YamlObject
 $MarkdownModel = Get-Content -Path $Model
-Write-Host $MarkdownModel.GetType()
 $MarkdownModel = Fill-Markdown -YamlObject $YamlObject -Model $MarkdownModel
 
 $FileName = if ($FileName.Contains('.md')) { $FileName } else { $FileName + '.md' }
