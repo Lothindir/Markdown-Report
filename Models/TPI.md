@@ -6,6 +6,8 @@
 
 Ces éléments peuvent être repris des spécifications de départ. -->
 
+<>TITLE<>
+
 ## 1.2 Objectifs
 
 <!-- Ce chapitre énumère les objectifs du projet. L'atteinte ou non de ceux-ci devra pouvoir être contrôlée à la fin du projet. Les objectifs pourront éventuellement être revus après l'analyse.  
