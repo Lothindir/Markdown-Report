@@ -1,10 +1,10 @@
 #requires -version 4
 <#
 .SYNOPSIS
-  Creates a new rapport in markdown, to be used with Pandoc.
+  Creates a new report in markdown, to be used with Pandoc.
 
 .DESCRIPTION
-  Creates and populates a new rapport with the given parameters. Can work in two ways : 
+  Creates and populates a new report with the given parameters. Can work in two ways : 
   1) Provide all the parameters via the cli when calling the script
   2) Use a YAML file to provide parameters
   3) Enter the interactive mode to provide the parameters one by one
@@ -55,7 +55,7 @@ Param (
   # Model name
   [Parameter()]
   [String]
-  $ModelName = 'Rapport',
+  $ModelName = 'Report',
 
   #--- Interactive mode ---
 
@@ -432,7 +432,7 @@ if ($PSCmdlet.ParameterSetName -eq 'Interactive' -or $PSCmdlet.ParameterSetName 
 
     $DestinationPath = Read-HostWithDefaultValue -Prompt 'Where do you want to create your file ?' '.'
 
-    $FileName = Read-HostWithDefaultValue -Prompt 'What is the filename ?' 'Rapport'
+    $FileName = Read-HostWithDefaultValue -Prompt 'What is the filename ?' 'Report'
 
     $Title = Read-HostWithDefaultValue -Prompt 'Enter Title'
 
@@ -535,23 +535,23 @@ $MarkdownModel = Fill-Markdown -YamlObject $YamlObject -Model $MarkdownModel
 
 $FileName = if ($FileName.Contains('.md')) { $FileName } else { $FileName + '.md' }
 
-$RapportFilePath = Join-Path -Path $DestinationPath -ChildPath $FileName
+$ReportFilePath = Join-Path -Path $DestinationPath -ChildPath $FileName
 
-while (Test-Path -Path $RapportFilePath) {
+while (Test-Path -Path $ReportFilePath) {
   $Overwrite = Read-HostWithDefaultValue "File '$($FileName)' already exists. Overwrite ?" -YesNo -No
   if ($Overwrite) {
-    Remove-Item -Path $RapportFilePath
+    Remove-Item -Path $ReportFilePath
   }
   else {
     $FileName = Read-HostWithDefaultValue -Prompt 'Enter new config filename'
     if (!$FileName.Contains('.md')) {
       $FileName += '.md'
     }
-    $RapportFilePath = Join-Path -Path $DestinationPath -ChildPath $FileName
+    $ReportFilePath = Join-Path -Path $DestinationPath -ChildPath $FileName
   }
 }
 
-New-Item -Path $RapportFilePath -ItemType File >> $null
-Add-Content -Path $RapportFilePath -Value $YamlFile
-Add-Content -Path $RapportFilePath -Value "---`r`n"
-Add-Content -Path $RapportFilePath -Value $MarkdownModel
+New-Item -Path $ReportFilePath -ItemType File >> $null
+Add-Content -Path $ReportFilePath -Value $YamlFile
+Add-Content -Path $ReportFilePath -Value "---`r`n"
+Add-Content -Path $ReportFilePath -Value $MarkdownModel

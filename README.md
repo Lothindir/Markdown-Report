@@ -2,7 +2,7 @@
 
 ## Description
 
-This script generate a markdown rapport to be handled with pandoc. You can provide a YAML config file, use the CLI Parameters or use yhe Interactive mode which asks you all the configurations needed.
+This script generate a markdown report to be handled with pandoc. You can provide a YAML config file, use the CLI Parameters or use yhe Interactive mode which asks you all the configurations needed.
 
 This is a work in progress, expect bugs, strange code and dead ends...
 
